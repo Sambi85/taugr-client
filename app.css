@@ -111,3 +111,9 @@ body{
     background: #FAB87F;
     color: #fff;
   }
+
+  .liked-costumes-container{
+      display: flex;
+      align-content: left;
+      
+  }
