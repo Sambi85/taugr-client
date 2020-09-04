@@ -26,8 +26,26 @@
   </div>
 
   <script type="text/javascript" src="index.js"></script>  <!-- edit this javascript? -->
+  <script src="fetchAdapter.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
+  <a class="login-trigger" href="#" data-target="#login" data-toggle="modal">Dare to enter ?!?</a>
+
+<div id="login" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    
+    <div class="modal-content">
+      <div class="modal-body">
+        <button data-dismiss="modal" class="close">&times;</button>
+        <h4>Enter your name</h4>
+        <form>
+          <input type="text" name="username" class="username form-control" placeholder="Enter your name"/>
+          <input class="btn login" type="submit" value="You may enter..." />
+        </form>
+      </div>
+    </div>
+  </div>  
+</div>
 
 </body>
 <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Reenie+Beanie&display=swap" rel="stylesheet">

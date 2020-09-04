@@ -1,10 +1,18 @@
 
 document.addEventListener("DOMContentLoaded", function (event) {
-    // const costumeFetchAdapter = new Fetch
+
+    const baseUrl = "http://localhost:3000/"
+    const fetch1 = new FetchAdapter(baseUrl)
+    
+    fetch1.get(`costumes`)
+    .then(costumeData => {
+      costumeData.forEach(console.log)
+    })
+
 
 
     // Wrap every letter in a span
-var textWrapper = document.querySelector('.ml3');
+const textWrapper = document.querySelector('.ml3');
 textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
 anime.timeline({loop: true})
@@ -25,15 +33,3 @@ anime.timeline({loop: true})
 
 
 })
-
-class FetchAdapter{
-    constructor(baseUrl) {
-        this.baseUrl = baseUrl;
-    }
-    get(relativeUrl) {
-        fetch(baseUrl)
-        .then(response => response.json())
-        .then(costumeData => console.log(costumeData))
-    }
-
-}
