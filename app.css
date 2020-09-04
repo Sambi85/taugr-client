@@ -6,3 +6,10 @@ background: rgb(14,20,40);
 h1 {
     color: rgb(221, 158, 63);
 }
+
+.ml3 {
+    font-family: 'Cedarville Cursive', cursive;
+    font-weight: 900;
+    font-size: 3.5em;
+    text-align: center;
+  }
