@@ -1,7 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", function (event) {
     const findCostumeButton = document.querySelector("#find-costume")
-    const homePage = document.querySelector(".home-page")
+    // const findHomePage = document.querySelector(".home-page")
     const enterButton = document.querySelector(".click-to-enter-button")
     const enterPage = document.querySelector(".click-enter-page")
     
@@ -38,23 +38,24 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     
     // Click listener to bring us to the login menu
-    function enterClicks(){
+    function enterPageClicks(){
         document.addEventListener('click', (e) => {
             if(e.target === enterButton){
                 enterPage.innerHTML = `${loginMenu}`
-            }
+            } 
+            
         })
     }
     
     // Trying to get a submit listener on the login for to then bring us to the 'homePage'
-    // Instsead it is bringing us to a blank (null) click-enter-page
-    // moved loginForm in to the submit listener since it hadnt been created yet in any other scope
-    function loginSubmit(){
+    // Instead it is bringing us to a blank (null) click-enter-page
+    // moved loginForm in to the submit listener since it hadn't been created yet in any other scope
+    function loginPageSubmit(){
         document.addEventListener('submit', (e) =>{
             e.preventDefault()
             const loginForm = document.querySelector("form")
                 if(e.target === loginForm){
-                    enterPage.innerHTML = ``
+                    // enterPage.innerHTML = ``
                     enterPage.innerHTML = `${homePage}`
                 }
 
@@ -62,6 +63,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
     })
 }
 
-loginSubmit();
-enterClicks();
+  function homePageClicks() {
+    document.addEventListener("click", (e) => {
+      if (e.target === document.querySelector("#find-costume")) {
+            enterPage.innerHTML = `${costumePage}`
+      }
+      if (e.target === document.querySelector("#upload")) {
+           enterPage.innerHTML = "<h1> Upload Form goes here/ hide and seek/ toy tale !!! <h1>" 
+      }
+    
+    }) 
+  }
+
+enterPageClicks();
+loginPageSubmit();
+homePageClicks();
 })

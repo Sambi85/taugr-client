@@ -7,10 +7,6 @@ let enterPage = `
 
 `
 
-
-
-
-
 // Page with buttons for finding a costume and uploading your own
 let homePage = `
 
@@ -81,3 +77,4 @@ let loginMenu = `
   </div>  
 </div>
 `
+
