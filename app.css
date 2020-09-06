@@ -51,7 +51,7 @@ body{
     text-align: center;
   }
     /*Trigger Button*/
-  .login-trigger {
+.login-trigger {
     font-weight: bold;
     color: #fff;
     background: linear-gradient(to bottom right, #B05574, #F87E7B);
@@ -62,26 +62,26 @@ body{
   }
   
   /*Modal*/
-  h4 {
+h4 {
     font-weight: bold;
     color: #fff;
   }
-  .close {
+.close {
     color: #fff;
     transform: scale(1.2)
   }
-  .modal-content {
+.modal-content {
     font-weight: bold;
     background: linear-gradient(to bottom right,#F87E7B,#B05574);
   }
-  .form-control {
+.form-control {
     margin: 1em 0;
   }
-  .form-control:hover, .form-control:focus {
+.form-control:hover, .form-control:focus {
     box-shadow: none;  
     border-color: #fff;
   }
-  .username {
+.username {
     border: none;
     border-radius: 0;
     box-shadow: none;
@@ -90,14 +90,14 @@ body{
     font-weight: normal;
     background: transparent;  
   }
-  .form-control::-webkit-input-placeholder {
+.form-control::-webkit-input-placeholder {
     color: #eee;  
   }
-  .form-control:focus::-webkit-input-placeholder {
+.form-control:focus::-webkit-input-placeholder {
     font-weight: bold;
     color: #fff;
   }
-  .login {
+.login {
     padding: 6px 20px;
     border-radius: 20px;
     background: none;
@@ -107,13 +107,15 @@ body{
     transition: all .5s;
     margin-top: 1em;
   }
-  .login:hover {
+.login:hover {
     background: #FAB87F;
     color: #fff;
   }
 
-  .liked-costumes-container{
+.liked-costumes-container{
       display: flex;
       align-content: left;
-      
   }
+
+  
+
