@@ -37,10 +37,12 @@ let costumePage = `
     <div class ="likes-container">
       people have liked this costume
     </div>
+
     <div class="costume-container">
       <!--  Photos from the Api will be rendered in to this img tag below  -->
       <img src="https://i.imgur.com/ilCC6iZ.jpg" alt="Hamburglar" height=300px id="center-costume-photo">
     </div>
+
     <div class="costume-button-container">
       <button id="like-button">
         I like it!
@@ -53,7 +55,23 @@ let costumePage = `
 
     <div class="liked-costumes-container">
     <!--  Photos will populate here after Like button is clicked   -->
+        <div class="liked-costume">
+            <img src="https://i.imgur.com/ilCC6iZ.jpg" height=125px>
+        </div>
     </div>
+
+    <div class="scroll-up-button-container"> 
+        <button id="scroll-up-button">
+          ^
+        </button>
+    </div>
+
+    <div class="scroll-down-button-container">
+        <button id="scroll-down-button">
+            v
+        </button>
+    </div>
+
 </div>
 `
 // <!--   login pop up screen    -->
