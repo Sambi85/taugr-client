@@ -40,7 +40,7 @@ let costumePage = `
 
     <div class="costume-container">
       <!--  Photos from the Api will be rendered in to this img tag below  -->
-      <img src="https://i.imgur.com/ilCC6iZ.jpg" alt="Hamburglar" height=300px id="center-costume-photo">
+      <img src="" alt="" height=300px id="center-costume-photo">
     </div>
 
     <div class="costume-button-container">
