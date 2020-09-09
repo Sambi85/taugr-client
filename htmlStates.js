@@ -16,11 +16,11 @@ let homePage = `
     <div class="welcome-button-container">
       <div class="center">
         <button id="find-costume"> 
-          Click Here to Search for a Costume 
+          Find for a Costume 
         </button>
         
         <button id="upload">
-          Click Here to Upload Your Own Costume
+          Upload Your Own Costume
         </button>
       </div>
     </div>
@@ -84,8 +84,8 @@ let loginMenu = `
     
     <div class="modal-content">
       <div class="modal-body">
-        <button data-dismiss="modal" class="close">&times;</button>
-        <h4>Enter your name</h4>
+       
+        <h4 id="what-is-name">What is your name?</h4>
         <form>
           <input type="text" name="username" class="username form-control" placeholder="Enter your name"/>
           <input class="btn login" type="submit" value="You may enter..." />
