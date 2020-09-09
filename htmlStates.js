@@ -40,7 +40,7 @@ let costumePage = `
 
     <div class="costume-container">
       <!--  Photos from the Api will be rendered in to this img tag below  -->
-      <img src="" alt="" height=300px id="center-costume-photo">
+      <img src="" alt="" height=600px id="center-costume-photo" >
     </div>
 
     <div class="costume-button-container">
@@ -56,7 +56,7 @@ let costumePage = `
     <div class="liked-costumes-container">
     <!--  Photos will populate here after Like button is clicked   -->
         <div class="liked-costume">
-            <img src="https://i.imgur.com/ilCC6iZ.jpg" height=125px>
+            <img src="" height=125px id="liked-img-tag">
         </div>
     </div>
 

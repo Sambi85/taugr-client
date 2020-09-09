@@ -8,5 +8,7 @@ class FetchAdapter{
       return fetch(`${this.baseUrl}${relativeUrl}`)
       .then(response => response.json())
     }
+
+    
     
 }

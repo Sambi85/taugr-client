@@ -115,7 +115,41 @@ h4 {
 .liked-costumes-container{
       display: flex;
       align-content: left;
+
   }
 
-  
+  /* ADD ROUNDED EDGES TO COSTUME PAGE PHOTO */
 
+  #center-costume-photo {
+    border-radius: 10px;
+  }
+  
+  .click-to-enter-button {
+    /* background-color: peru; */
+    -moz-box-shadow: -2px 3px 5px #000000;
+    -webkit-box-shadow: -2px 3px 5px #000000;
+    box-shadow: -2px 3px 5px #000000;
+    border:none 5px #000000;
+    background:-webkit-gradient(linear, 80% 62%, 10% 21%, from(#A96443), to(#AD4E28));
+    -moz-border-radius: 27px;
+    -webkit-border-radius: 27px;
+    border-radius: 27px;
+    transition:All 0.7194s ease;
+    -webkit-transition:All 0.7194s ease;
+    -moz-transition:All 0.7194s ease;
+    -o-transition:All 0.7194s ease;
+    transform: rotate(4deg) scale(1) skew(1deg) translate(10px);
+    -webkit-transform: rotate(4deg) scale(1) skew(1deg) translate(10px);
+    -moz-transform: rotate(4deg) scale(1) skew(1deg) translate(10px);
+    -o-transform: rotate(4deg) scale(1) skew(1deg) translate(10px);
+    -ms-transform: rotate(4deg) scale(1) skew(1deg) translate(10px);
+    }
+    
+    .click-to-enter-button:hover{
+    transform: rotate(2deg) scale(1) skew(-1deg) translate(-2px);
+    -webkit-transform: rotate(2deg) scale(1) skew(-1deg) translate(-2px);
+    -moz-transform: rotate(2deg) scale(1) skew(-1deg) translate(-2px);
+    -o-transform: rotate(2deg) scale(1) skew(-1deg) translate(-2px);
+    -ms-transform: rotate(2deg) scale(1) skew(-1deg) translate(-2px);
+
+  }
