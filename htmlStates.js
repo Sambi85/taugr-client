@@ -19,9 +19,17 @@ let homePage = `
           Find for a Costume 
         </button>
         
-        <button id="upload">
-          Upload Your Own Costume
-        </button>
+
+        <!-- working on adding a hidden form --->
+
+        <div class="upload-form-container">
+          <form class="upload-costume-form">
+          <input>
+          </form>
+          <button id="upload-button">
+            Upload Your Own Costume
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -35,8 +43,7 @@ let costumePage = `
 
     <!--  Amount of likes on a UserCostume will populate in the below container  -->
     <div class ="likes-container">
-      people have liked this costume
-    </div>
+    </div> 
 
     <div class="costume-container">
       <!--  Photos from the Api will be rendered in to this img tag below  -->

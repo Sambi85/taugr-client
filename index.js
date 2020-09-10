@@ -12,23 +12,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const fetchUserCostume = new FetchAdapter(userCostumeUrl)
     const fetchUser = new FetchAdapter(userUrl)
 
-
-    
-    
-    // this is the fetch for the costumes photo 
-    
-    // function iterateCostumes(costumeData) {
-        //     for (let costume of costumeData ) {
-            //         console.log(costume)
-            //         // console.log(costumeData )
-            
-            //     }
-            // }
-            
-            // function renderCostume(costumeData) {
-                //     const firstPhoto = costumeUrl + counter
-                // }
-                
                 
                 // This is the code for the animated title 
                 // Wrap every letter in a span
@@ -61,17 +44,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     })
                 }
                 
-                // Trying to get a submit listener on the login for to then bring us to the 'homePage'
-                // Instead it is bringing us to a blank (null) click-enter-page
-                // moved loginForm in to the submit listener since it hadn't been created yet in any other scope
                 function loginPageSubmit(){
                     document.addEventListener('submit', (e) =>{
                         e.preventDefault()
                         const loginForm = document.querySelector("form")
                         if(e.target === loginForm){
-                            // debugger
+
                             const userName = e.target.children[0].value
-                            // fetchUser.get(userUrl).then(userData=> {
                                 const userPost = {
                                     method: "POST",
                                     headers: {
@@ -79,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                                         "Accept": "application/json"
                                     },
                                     body: JSON.stringify({
-                                        name: userName //need a user id from magic
+                                        name: userName
                                     })
                                 }
                                 fetch(userUrl, userPost).then(response => response.json()).then(userData => {
@@ -96,35 +75,63 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     return Math.floor(Math.random() * (max - min) + min); 
                 }  
                 
+
+                /// JUST BROKE OUR CLICK LISTENER, TRYING TO GET OUR COSTUME.USER_COSTUMES.LENGTH
+
+
                 function homePageClicks() {
                     document.addEventListener("click", (e) => {
                         if (e.target === document.querySelector("#find-costume")) {
                             enterPage.innerHTML = `${costumePage}`
                             const costumeImage = document.querySelector("#center-costume-photo")
+                            const likesSpan = document.querySelector(".likes-span")
+                            
                             fetchCostume.get(randomNumber(1,75)).then(costumeData => {
                                 costumeImage.src = costumeData.url
                                 costumeImage.dataset.id = costumeData.id
+                                likesSpan.innerText = `${costumeData.user_costumes.length} People Have Liked This Costume`
+                                
                             })
-                        }
-                        if (e.target === document.querySelector("#upload")) {
-                            enterPage.innerHTML = "<h1> Upload Form goes here/ hide and seek/ toy tale !!! <h1>" 
-                        }
-                        
-                    }) 
+                            
+                            fetch(costumeUrl)
+                            .then(response => response.json())
+                            .then( costumeData => {
+                                console.log(costumeData[0].user_costumes.length) })
+
+                            if (e.target === document.querySelector("#upload")) {
+                                enterPage.innerHTML = "<h1> Upload Form goes here/ hide and seek/ toy tale !!! <h1>" 
+                        } 
+                    } 
                 }
+
+                //starting to play with hide and seek form -------------------------------------------------
+
+                // const uploadCostumeBtn = document.querySelector("#upload-button");
+                // const uploadFormContainer = document.querySelector(".upload-form-container");
+                // uploadCostumeBtn.addEventListener("click", () => {
+                //   // hide & seek with the form
+                //   addToy = !addToy;
+                //   if (addToy) {
+                //     uploadFormContainer.style.display = "block";
+                //   } else {
+                //     uploadFormContainer.style.display = "none";
+                //   }
+                // });
+
+                //end of hide and seek form---------------------------------------------------------------
+
                 
                 function costumePageClicks() {
                     document.addEventListener("click", (e) => {
                         if (e.target === document.querySelector("#like-button")) {
+                            
                             const costumeImage = document.querySelector("#center-costume-photo")
                             const imageContainer = document.querySelector(".liked-costume")
                             const newImgTag = document.createElement('img')
-                            console.log(newImgTag)
                             newImgTag.src = costumeImage.src
                             imageContainer.append(newImgTag)
 
                             const userLikeId = document.querySelector(".user-id").dataset.id
-                            // create a magical fetch POST to get ID of photo
                             const options = {
                                 method: "POST",
                                 headers: {
@@ -137,8 +144,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
                                 })
                             }
 
-                            
-                            fetch(userCostumeUrl, options).then(response => response.json()).then(console.log)
+                            fetch(userCostumeUrl, options)
+                            .then(response => response.json())
+                            .then(console.log)
                             
 
                             fetchCostume.get(randomNumber(1,75)).then(costumeData => {
@@ -155,8 +163,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
                             costumeImage.src = costumeData.url
                             costumeImage.dataset.id = costumeData.id
                         })
-
-
                   
                     }
 
@@ -166,7 +172,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 // increment the 'likes' of a cosutume by counting the .length of all the usercostumes that match that costume's id
 // upload a photo. on form submission a post request is made to the db
-            // make page and a form
+    // make page and a form
+// get like images to persist reguards of liking or disliking current photo
+// serializer, let's get it working ! 
 // css n jazz
 
 
