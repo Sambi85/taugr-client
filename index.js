@@ -104,13 +104,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
                             const uploadCostumeBtn = document.querySelector("#upload-button");
                             const uploadFormContainer = document.querySelector(".upload-form-container");
                             uploadFormContainer.innerHTML = `${newCostumeForm}`                      
-                            addCostume = !addCostume;
-                            if (addCostume) {
-                                uploadFormContainer.style.display = "none";
-                                addCostume() 
-                            } else {
-                                uploadFormContainer.style.display = "block";
-                            }
+                            addCostume() 
+                            
+                            // addCostume = !addCostume;
+                            
+                            // if (addCostume) {
+                            //     uploadFormContainer.style.display = "none";
+                                
+                            // } else {
+                            //     uploadFormContainer.style.display = "block";
+                            // }
                         } 
                     }) 
                 }
@@ -121,12 +124,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 function addCostume(){
                     const uploadFormContainer = document.querySelector(".upload-form-container");
                     uploadFormContainer.addEventListener('submit', function(e){
+                        
                         e.preventDefault()
-                        let title = e.target.title.value 
+                        let newTitle = e.target.title.value
                         let imageUrl = e.target.imageUrl.value
                         let description = e.target.description.value
-                        console.log(e)
-
+                        
                       const options = {
                         method: "POST",
                         headers: {
@@ -134,15 +137,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
                             "Accept": "application/json"
                         },
                         body: JSON.stringify({
-                            title: title, 
+                            title: newTitle, 
                             url: imageUrl,
                             description: description
                         }) 
                     }
 
-                    fetch(costumeUrl, options).then(resp => resp.json())
-
-                 })
+                    fetch(costumeUrl, options).then(resp => resp.json()).then(data => console.log(data))
+                })
                 }
                 
                 function costumePageClicks() {

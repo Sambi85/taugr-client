@@ -103,7 +103,7 @@ let loginMenu = `
 let newCostumeForm = `<form class ="new-costume-form">
                   <input
                     type="text"
-                    title="title"
+                    name="title"
                     value=""
                     placeholder="Title your costume"
                     class="input-text"
