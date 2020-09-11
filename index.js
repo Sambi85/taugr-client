@@ -4,24 +4,25 @@ document.addEventListener("DOMContentLoaded", function (event) {
     // const findHomePage = document.querySelector(".home-page")
     const enterButton = document.querySelector(".click-to-enter-button")
     const enterPage = document.querySelector(".click-enter-page")
-    let counter = 11
+    const welcomeButtonContainer = document.querySelector(".center")
+    
     const costumeUrl = "http://localhost:3000/costumes/" 
     const userCostumeUrl = "http://localhost:3000/user_costumes/" 
     const userUrl = "http://localhost:3000/users/"
     const fetchCostume = new FetchAdapter(costumeUrl)
     const fetchUserCostume = new FetchAdapter(userCostumeUrl)
     const fetchUser = new FetchAdapter(userUrl)
-
-                
-                // This is the code for the animated title 
-                // Wrap every letter in a span
-                const textWrapper = document.querySelector('.ml3');
-                textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-                
-                anime.timeline({loop: true})
-                .add({
-                    targets: '.ml3 .letter',
-                    opacity: [0,1],
+    
+    
+    // This is the code for the animated title 
+    // Wrap every letter in a span
+    const textWrapper = document.querySelector('.ml3');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+    
+    anime.timeline({loop: true})
+    .add({
+        targets: '.ml3 .letter',
+        opacity: [0,1],
                     easing: "easeInOutQuad",
                     duration: 2250,
                     delay: (el, i) => 150 * (i+1)
@@ -49,77 +50,100 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         e.preventDefault()
                         const loginForm = document.querySelector("form")
                         if(e.target === loginForm){
-
+                            
                             const userName = e.target.children[0].value
-                                const userPost = {
-                                    method: "POST",
-                                    headers: {
-                                        "Content-Type": "application/json",
-                                        "Accept": "application/json"
-                                    },
-                                    body: JSON.stringify({
-                                        name: userName
-                                    })
-                                }
-                                fetch(userUrl, userPost).then(response => response.json()).then(userData => {
-                                    let userId = userData.id
+                            const userPost = {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                    "Accept": "application/json"
+                                },
+                                body: JSON.stringify({
+                                    name: userName
+                                })
+                            }
+                            fetch(userUrl, userPost).then(response => response.json()).then(userData => {
+                                let userId = userData.id
                                     let userIdContainer = document.querySelector(".user-id")
                                     userIdContainer.dataset.id = userId
                                 })
-                            enterPage.innerHTML = `${homePage}`
-                        }
-                    })
-                }
-                
-                function randomNumber(min, max) {  
-                    return Math.floor(Math.random() * (max - min) + min); 
-                }  
-                
-
-                /// JUST BROKE OUR CLICK LISTENER, TRYING TO GET OUR COSTUME.USER_COSTUMES.LENGTH
-
-
-                function homePageClicks() {
-                    document.addEventListener("click", (e) => {
-                        if (e.target === document.querySelector("#find-costume")) {
-                            enterPage.innerHTML = `${costumePage}`
-                            const costumeImage = document.querySelector("#center-costume-photo")
-                            const likesSpan = document.querySelector(".likes-span")
-                            
-                            fetchCostume.get(randomNumber(1,75)).then(costumeData => {
-                                costumeImage.src = costumeData.url
-                                costumeImage.dataset.id = costumeData.id
-                                likesSpan.innerText = `${costumeData.user_costumes.length} People Have Liked This Costume`
+                                enterPage.innerHTML = `${homePage}`
+                            }
+                        })
+                    }
+                    
+                    function randomNumber(min, max) {  
+                        return Math.floor(Math.random() * (max - min) + min); 
+                    }  
+                    
+                    
+                    /// JUST BROKE OUR CLICK LISTENER, TRYING TO GET OUR COSTUME.USER_COSTUMES.LENGTH
+                    
+                    
+                    function homePageClicks() {
+                        enterPage.addEventListener("click", (e) => {
+                            if (e.target === document.querySelector("#find-costume")) {
+                                enterPage.innerHTML = `${costumePage}`
+                                const costumeImage = document.querySelector("#center-costume-photo")
+                                const likesContainer = document.querySelector(".likes-container")
                                 
-                            })
-                            
-                            fetch(costumeUrl)
-                            .then(response => response.json())
-                            .then( costumeData => {
-                                console.log(costumeData[0].user_costumes.length) })
-
-                            if (e.target === document.querySelector("#upload")) {
-                                enterPage.innerHTML = "<h1> Upload Form goes here/ hide and seek/ toy tale !!! <h1>" 
+                                fetchCostume.get(randomNumber(1,25)).then(costumeData => {
+                                    const likesSpan = document.createElement("span")
+                                    likesSpan.className = "likes-span"
+                                    costumeImage.src = costumeData.url
+                                    costumeImage.dataset.id = costumeData.id
+                                    likesSpan.innerText = " "
+                                    likesSpan.innerText = parseInt(`${costumeData.user_costumes.length}`) + ` People Have Liked This Costume`
+                                    likesContainer.appendChild(likesSpan)
+                                })
+                                
+                    // vv This is closing the if statement for the find-costume button         
+                        }
+                        
+                        if (e.target === document.querySelector("#upload-button")) {
+                            const uploadCostumeBtn = document.querySelector("#upload-button");
+                            const uploadFormContainer = document.querySelector(".upload-form-container");
+                            uploadFormContainer.innerHTML = `${newCostumeForm}`                      
+                            addCostume = !addCostume;
+                            if (addCostume) {
+                                uploadFormContainer.style.display = "none";
+                                addCostume() 
+                            } else {
+                                uploadFormContainer.style.display = "block";
+                            }
                         } 
-                    } 
+                    }) 
                 }
 
-                //starting to play with hide and seek form -------------------------------------------------
+                
+                // unable to console log after form submission
+               //  not able to post to DB
+                function addCostume(){
+                    const uploadFormContainer = document.querySelector(".upload-form-container");
+                    uploadFormContainer.addEventListener('submit', function(e){
+                        e.preventDefault()
+                        let title = e.target.title.value 
+                        let imageUrl = e.target.imageUrl.value
+                        let description = e.target.description.value
+                        console.log(e)
 
-                // const uploadCostumeBtn = document.querySelector("#upload-button");
-                // const uploadFormContainer = document.querySelector(".upload-form-container");
-                // uploadCostumeBtn.addEventListener("click", () => {
-                //   // hide & seek with the form
-                //   addToy = !addToy;
-                //   if (addToy) {
-                //     uploadFormContainer.style.display = "block";
-                //   } else {
-                //     uploadFormContainer.style.display = "none";
-                //   }
-                // });
+                      const options = {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Accept": "application/json"
+                        },
+                        body: JSON.stringify({
+                            title: title, 
+                            url: imageUrl,
+                            description: description
+                        }) 
+                    }
 
-                //end of hide and seek form---------------------------------------------------------------
+                    fetch(costumeUrl, options).then(resp => resp.json())
 
+                 })
+                }
                 
                 function costumePageClicks() {
                     document.addEventListener("click", (e) => {
@@ -143,13 +167,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
                                     costume_id: costumeImage.dataset.id
                                 })
                             }
-
                             fetch(userCostumeUrl, options)
                             .then(response => response.json())
-                            .then(console.log)
+                            // The above fetch is POSTing our new UserCostume to the DB
                             
-
-                            fetchCostume.get(randomNumber(1,75)).then(costumeData => {
+                            fetchCostume.get(randomNumber(1,25)).then(costumeData => {
                                 costumeImage.src = costumeData.url
                                 costumeImage.dataset.id = costumeData.id
                             })
@@ -159,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     if (e.target === document.querySelector("#dislike-button")) {
                         enterPage.innerHTML = `${costumePage}`
                         const costumeImage = document.querySelector("#center-costume-photo")
-                        fetchCostume.get(randomNumber(1,75)).then(costumeData => {
+                        fetchCostume.get(randomNumber(1,25)).then(costumeData => {
                             costumeImage.src = costumeData.url
                             costumeImage.dataset.id = costumeData.id
                         })

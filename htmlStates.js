@@ -23,9 +23,6 @@ let homePage = `
         <!-- working on adding a hidden form --->
 
         <div class="upload-form-container">
-          <form class="upload-costume-form">
-          <input>
-          </form>
           <button id="upload-button">
             Upload Your Own Costume
           </button>
@@ -103,3 +100,36 @@ let loginMenu = `
 </div>
 `
 
+let newCostumeForm = `<form class ="new-costume-form">
+                  <input
+                    type="text"
+                    title="title"
+                    value=""
+                    placeholder="Title your costume"
+                    class="input-text"
+                    />
+                    <br />
+                    <input
+                    type="text"
+                    name="imageUrl"
+                    value=""
+                    placeholder="Image Url..."
+                    class="input-text"
+                    />
+                    <br />
+                    <input
+                    type="text"
+                    name="description"
+                    value=""
+                    placeholder="Describe your costume..."
+                    class="input-text"
+                    />
+                    <br />
+                    <input
+                    type="submit"
+                    name="submit"
+                    value="Upload Costume"
+                    class="submit"
+                    />
+                  </form>
+                  `
