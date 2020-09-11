@@ -49,11 +49,11 @@ let costumePage = `
 
     <div class="costume-button-container">
       <button id="like-button">
-        I like it!
+        LIKE THIS
       </button>
 
       <button id="dislike-button">
-        I don't like this!!
+        HATE THIS
       </button>
     </div>
 
@@ -128,7 +128,7 @@ let newCostumeForm = `<form class ="new-costume-form">
                     <input
                     type="submit"
                     name="submit"
-                    value="Upload Costume"
+                    value="Upload"
                     class="submit"
                     />
                   </form>

@@ -5,7 +5,7 @@ background: rgb(14,20,40);
 
 h1 {
     color: rgb(221, 158, 63);
-    position:relative; left:100px; top:75px;
+    position: center; left:100px; top:75px;
 
 }
 
@@ -13,7 +13,7 @@ h1 {
     font-family: 'Cedarville Cursive', cursive;
     font-weight: 900;
     font-size: 8.5em;
-    text-align: center;
+    /* text-align: center; */
   }
 
   .welcome-button-container{
@@ -50,6 +50,17 @@ h1 {
     width: 350px;
     height: 50px;
     text-align: center;
+}
+
+.input-text{
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 2px solid #eee;
+  padding-left: 0;
+  font-weight: normal;
+  background: transparent;  
+  font-size: 22px;
 }
 
 #upload-button{
@@ -97,8 +108,18 @@ h4 {
     position: relative; left:0px; top:40px;
     font-family: 'Cedarville Cursive', cursive;
     font-size: 80px;
+    font-weight: bold; 
+  }
+
+  .submit{
+    width: 125px;
+    height: 45px;
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 30px;
+    align-content: center;
+    background-color: #7b9e89;
+    border-radius: 10px;
     font-weight: bold;
-    
   }
 
 .form-control {
@@ -143,16 +164,59 @@ h4 {
     color: #fff;
   }
 
-.liked-costumes-container{
+/* .liked-costumes-container{
       display: flex;
       align-content: left;
+    } */
+    
+    .liked-costume{
+      display:block;
+      position:relative;
+    }
+    
+ .indiv-liked-costume{
+      /* border-radius: 10px; */
+      /* border:inherit 0px #000000; */
+      height: 350px;
+-moz-border-radius-topleft: 0px;
+-moz-border-radius-topright:43px;
+-moz-border-radius-bottomleft:44px;
+-moz-border-radius-bottomright:0px;
+-webkit-border-top-left-radius:0px;
+-webkit-border-top-right-radius:43px;
+-webkit-border-bottom-left-radius:44px;
+-webkit-border-bottom-right-radius:0px;
+border-top-left-radius:0px;
+border-top-right-radius:43px;
+border-bottom-left-radius:44px;
+border-bottom-right-radius:0px;
+}
 
-  }
+#like-button{
+    width: 150px;
+    height: 50px;
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 30px;
+    align-content: center;
+    background-color: #7b9e89;
+    border-radius: 10px;
+}
+
+#dislike-button{
+  width: 150px;
+  height: 50px;
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 30px;
+  align-content: center;
+  background-color: #d95d39;
+  border-radius: 10px;
+}
 
   /* ADD ROUNDED EDGES TO COSTUME PAGE PHOTO */
 
   #center-costume-photo {
     border-radius: 10px;
+    height: 800px;
   }
   
   .click-to-enter-button {
