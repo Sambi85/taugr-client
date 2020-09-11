@@ -38,7 +38,9 @@ h1 {
     height: 50px;
     font-family: 'Reenie Beanie', cursive;
     font-size: 30px;
-    text-align: center;
+    align-content: center;
+    background-color: rgb(221, 158, 63);
+    border-radius: 10px;
 }
 
 #upload {
@@ -48,6 +50,17 @@ h1 {
     width: 350px;
     height: 50px;
     text-align: center;
+}
+
+#upload-button{
+  display: flex;
+    width: 350px;
+    height: 50px;
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 30px;
+    align-content: center;
+    background-color: rgb(221, 158, 63);
+    border-radius: 10px;
 }
 
 body{
@@ -81,10 +94,11 @@ h4 {
   }
 
   #what-is-name{
-    font-family: 'Reenie Beanie', cursive;
+    position: relative; left:0px; top:40px;
+    font-family: 'Cedarville Cursive', cursive;
     font-size: 80px;
     font-weight: bold;
-    font
+    
   }
 
 .form-control {
@@ -102,13 +116,16 @@ h4 {
     padding-left: 0;
     font-weight: normal;
     background: transparent;  
+    font-size: 22px;
   }
 .form-control::-webkit-input-placeholder {
-    color: #eee;  
+    color: rgba(38, 34, 30, 0.248);  
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 38px;
   }
 .form-control:focus::-webkit-input-placeholder {
-    font-weight: bold;
-    color: #fff;
+    /* font-weight: bold; */
+    color: rgba(255, 145, 0, 0.789);
   }
 .login {
     padding: 6px 20px;
@@ -119,6 +136,7 @@ h4 {
     font-weight: bold;
     transition: all .5s;
     margin-top: 1em;
+    font-size: 22px;
   }
 .login:hover {
     background: #FAB87F;

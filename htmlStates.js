@@ -16,7 +16,7 @@ let homePage = `
     <div class="welcome-button-container">
       <div class="center">
         <button id="find-costume"> 
-          Find for a Costume 
+          Find a Costume 
         </button>
         
 
@@ -81,7 +81,7 @@ let costumePage = `
 // <!--   login pop up screen    -->
 let loginMenu = `
 
-<a class="login-trigger" href="#" data-target="#login" data-toggle="modal">Dare to enter ?!?</a>
+<!-- <a class="login-trigger" href="#" data-target="#login" data-toggle="modal">Dare to enter ?!?</a> -->
 
 <div id="login" class="modal fade" role="dialog">
   <div class="modal-dialog">
