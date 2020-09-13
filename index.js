@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                                 const costumeImage = document.querySelector("#center-costume-photo")
                                 const likesContainer = document.querySelector(".likes-container")
                                 
-                                fetchCostume.get(randomNumber(1,25)).then(costumeData => {
+                                fetchCostume.get(randomNumber(1,81)).then(costumeData => {
                                     const likesSpan = document.createElement("span")
                                     likesSpan.className = "likes-span"
                                     costumeImage.src = costumeData.url
@@ -105,22 +105,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
                             const uploadFormContainer = document.querySelector(".upload-form-container");
                             uploadFormContainer.innerHTML = `${newCostumeForm}`                      
                             addCostume() 
-                            
-                            // addCostume = !addCostume;
-                            
-                            // if (addCostume) {
-                            //     uploadFormContainer.style.display = "none";
-                                
-                            // } else {
-                            //     uploadFormContainer.style.display = "block";
-                            // }
                         } 
                     }) 
                 }
 
                 
-                // unable to console log after form submission
-               //  not able to post to DB
                 function addCostume(){
                     const uploadFormContainer = document.querySelector(".upload-form-container");
                     uploadFormContainer.addEventListener('submit', function(e){
@@ -154,6 +143,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                             const costumeImage = document.querySelector("#center-costume-photo")
                             const imageContainer = document.querySelector(".liked-costume")
                             const newImgTag = document.createElement('img')
+                            newImgTag.className = "indiv-liked-costume"
                             newImgTag.src = costumeImage.src
                             imageContainer.append(newImgTag)
 
@@ -173,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                             .then(response => response.json())
                             // The above fetch is POSTing our new UserCostume to the DB
                             
-                            fetchCostume.get(randomNumber(1,25)).then(costumeData => {
+                            fetchCostume.get(randomNumber(1,81)).then(costumeData => {
                                 costumeImage.src = costumeData.url
                                 costumeImage.dataset.id = costumeData.id
                             })
@@ -183,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     if (e.target === document.querySelector("#dislike-button")) {
                         enterPage.innerHTML = `${costumePage}`
                         const costumeImage = document.querySelector("#center-costume-photo")
-                        fetchCostume.get(randomNumber(1,25)).then(costumeData => {
+                        fetchCostume.get(randomNumber(1,81)).then(costumeData => {
                             costumeImage.src = costumeData.url
                             costumeImage.dataset.id = costumeData.id
                         })
